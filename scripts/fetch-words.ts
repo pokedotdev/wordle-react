@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import * as path from 'path'
+import fetch from 'node-fetch'
 
 const API = 'https://gitlab.com/d2945/words/-/raw/main/words.txt'
 const FILE_PATH = path.resolve(__dirname, '../src/assets/words.json')
