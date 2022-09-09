@@ -10,10 +10,10 @@ export const ChartIcon = (props: SVGProps) => (
 	>
 		<rect width="29.613" height="24" x="4.935" y="6" rx="2"></rect>
 		<path
-			stroke="#fff"
+			className="stroke-white dark:stroke-gray-7"
 			strokeLinecap="round"
 			strokeLinejoin="round"
-			strokeWidth="1.2"
+			strokeWidth="1.4"
 			d="M13.161 15v9M19.742 18v6M26.323 12v12"
 		></path>
 	</svg>

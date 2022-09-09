@@ -12,3 +12,9 @@ export const getWord = () => {
 	const index = Math.floor(Math.random() * WORDS_COUNT)
 	return Array.from(WORDS)[index]
 }
+
+export const getNewWord = (usedWords: Set<string>) => {
+	let word = getWord()
+	while (usedWords.has(word)) word = getWord()
+	return word.toUpperCase()
+}

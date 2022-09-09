@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { ChartIcon, Modal } from '~/components'
 import { useGame } from '~/Game'
+import { addLeadingZeros } from '~/utils'
 
 export const StatsModal = () => {
 	const game = useGame()
@@ -8,14 +9,14 @@ export const StatsModal = () => {
 	const [_, setOpen] = state
 
 	React.useEffect(() => {
-		if (game.gameOver) setOpen(true)
-	}, [game.gameOver])
+		if (game.status !== 'playing') setOpen(true)
+	}, [game.status])
 
 	return (
 		<Modal
 			state={state}
 			buttonText="Aceptar"
-			trigger={<ChartIcon className="fill-gray-5" />}
+			trigger={<ChartIcon className="fill-gray-5 dark:fill-white" />}
 		>
 			<div className="my-12 flex flex-col items-center px-10 text-xl">
 				<h2 className="text-center text-4xl font-bold">Estadísticas</h2>
@@ -29,11 +30,16 @@ export const StatsModal = () => {
 						<div>Victorias</div>
 					</div>
 				</div>
-				<div className="mb-10">
-					La palabra era: <b>PERRO</b>
-				</div>
+				{game.status === 'lost' && (
+					<div className="mb-10">
+						La palabra era: <b>{game.solution}</b>
+					</div>
+				)}
 				<div>SIGUIENTE PALABRA</div>
-				<div className="text-2xl font-bold">4:10</div>
+				<div className="text-2xl font-bold">
+					{game.countdown.time.minutes}:
+					{addLeadingZeros(game.countdown.time.seconds, 2)}
+				</div>
 			</div>
 		</Modal>
 	)

@@ -1,4 +1,16 @@
-import { GameStats } from '~/types'
+import { GameStats, Game } from '~/types'
+
+export const getStoredGame = (): Game | undefined => {
+	const game = localStorage.getItem('game')
+	if (!game) return
+	const data = JSON.parse(game)
+	data.date = new Date(data.date)
+	return data
+}
+
+export const storeGame = (game: Omit<Game, 'guess'>) => {
+	localStorage.setItem('game', JSON.stringify(game))
+}
 
 // Stats
 
@@ -11,16 +23,16 @@ export const setStats = (stats: GameStats) => {
 	localStorage.setItem('stats', JSON.stringify(stats))
 }
 
-export const incrementPlays = (win: boolean) => {
+export const incrementPlays = (won: boolean) => {
 	const stats = getStats()
-	if (win) stats.wins++
+	if (won) stats.wins++
 	stats.plays++
 	setStats(stats)
 }
 
 // History
 
-export const getHistory = () => {
+export const getHistory = (): string[] => {
 	const history = localStorage.getItem('history')
 	return history ? JSON.parse(history) : []
 }
