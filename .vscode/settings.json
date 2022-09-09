@@ -1,0 +1,11 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	},
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"tailwindCSS.classAttributes": ["class", "className", "ngClass", ".*Styles"]
+}
