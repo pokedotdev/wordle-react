@@ -4,6 +4,7 @@ import { useCountdown, useWindow } from '~/hooks'
 import * as storage from '~/services/storage'
 import { getNewWord, isValidWord } from '~/services/words'
 import { removeAccents } from '~/utils'
+import { KEYS_FLAT } from '~/components'
 
 const newGame = () => {
 	const game: Game = {
@@ -134,10 +135,3 @@ export const GameProvider = ({ children }: React.PropsWithChildren) => {
 		</GameContext.Provider>
 	)
 }
-
-export const KEYS = [
-	['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-	['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ñ'],
-	['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
-]
-export const KEYS_FLAT = KEYS.flat()
