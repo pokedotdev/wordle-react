@@ -9,7 +9,7 @@ export const Board = () => {
 	const list = [...guesses, guess, ...fill].splice(0, 5)
 
 	return (
-		<div className="inline-flex flex-col gap-1.5 sm:gap-3">
+		<div className="inline-flex select-none flex-col gap-3">
 			{list.map((word, i) => (
 				<Guess key={i} guess={word} />
 			))}

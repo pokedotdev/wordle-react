@@ -17,7 +17,7 @@ export const DarkModeSwitch = () => {
 
 	return (
 		<button
-			className="flex scale-90 cursor-pointer items-center overflow-hidden rounded-full sm:scale-100"
+			className="flex cursor-pointer items-center overflow-hidden rounded-full"
 			style={{
 				width: '60px',
 				height: '30px',

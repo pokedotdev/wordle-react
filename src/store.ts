@@ -61,7 +61,10 @@ export const useGameStore = create<GameState>()(
 				if (state.history.includes(state.solution)) return
 				state.addToHistory(state.solution)
 				state.incrementPlays(won)
-				return set(() => ({ status: won ? 'won' : 'lost' }))
+				set(() => ({ status: won ? 'won' : 'lost' }))
+				// if (won && state.countdown < 1000 * 10)
+				// 	set(() => ({ countdown: 1000 * 10 }))
+				return
 			},
 			enter: () => {
 				const state = get()

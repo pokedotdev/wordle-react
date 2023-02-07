@@ -1,5 +1,6 @@
 import { Letter } from '~/components'
 import { LetterData } from '~/types'
+import { useGameStore } from '~/store'
 
 type GuessProps = {
 	guess: LetterData[]
@@ -13,7 +14,7 @@ export const Guess = ({ guess = [], isExample = false }: GuessProps) => {
 	const list = [...guess, ...fill]
 
 	return (
-		<div className="flex gap-1.5 sm:gap-3">
+		<div className="flex gap-3">
 			{list.map((letter, i) => (
 				<Letter
 					key={i}

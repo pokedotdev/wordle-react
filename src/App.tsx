@@ -4,7 +4,7 @@ import { useGameStore } from './store'
 
 function App() {
 	return (
-		<div className="mx-auto max-w-screen-sm px-1">
+		<div className="mx-auto box-content w-[638px]">
 			<Reset />
 			<Header />
 			<main className="flex flex-col items-center">
