@@ -88,22 +88,10 @@ export const Key = ({
 		const flat = state.guesses
 			.flat()
 			.filter((letter) => letter.value === children)
-		let output: LetterStatus = 'empty'
-		for (const letter of flat) {
-			if (letter.status === 'absent') {
-				output = 'absent'
-				break
-			}
-			if (letter.status === 'correct') {
-				output = 'correct'
-				break
-			}
-			if (letter.status === 'present') {
-				output = 'present'
-				break
-			}
-		}
-		return output
+		if (flat.find((l) => l.status === 'absent')) return 'absent'
+		if (flat.find((l) => l.status === 'correct')) return 'correct'
+		if (flat.find((l) => l.status === 'present')) return 'present'
+		return 'empty'
 	})
 
 	return (
