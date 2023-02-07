@@ -9,7 +9,9 @@ export const InfoModal = () => {
 		<Modal
 			state={state}
 			buttonText="¡JUGAR!"
-			trigger={<QuestionIcon className="fill-gray-5 dark:fill-gray-2" />}
+			trigger={
+				<QuestionIcon className="h-8 fill-gray-5 dark:fill-gray-2 sm:h-10" />
+			}
 		>
 			<div className="prose prose-lg my-12 px-10 dark:prose-invert dark:text-white">
 				<h2 className="text-center text-4xl font-bold">Cómo jugar</h2>

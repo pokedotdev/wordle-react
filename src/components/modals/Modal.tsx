@@ -15,7 +15,7 @@ export const Modal = ({ trigger, buttonText, children, state }: ModalProps) => {
 			<Dialog.Trigger>{trigger}</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="fixed inset-0 grid place-items-center bg-gray-1/90 dark:bg-gray-7/90">
-					<Dialog.Content className="flex max-h-[calc(100vh-112px)] w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-black bg-white dark:border-gray-4 dark:bg-gray-7">
+					<Dialog.Content className="flex max-h-screen w-full max-w-xl flex-col overflow-hidden border-black bg-white dark:border-gray-4 dark:bg-gray-7 sm:max-h-[calc(100vh-112px)] sm:rounded-2xl sm:border">
 						<div className="flex-auto overflow-y-auto">{children}</div>
 						<div
 							className="grid h-28 flex-none place-items-center"

@@ -18,7 +18,7 @@ export const Letter = ({
 }
 
 const LetterStyles = {
-	base: 'grid place-items-center h-20 w-20 text-4xl text-white font-extrabold rounded-lg',
+	base: 'grid place-items-center h-14 sm:h-20 aspect-square text-4xl text-white font-extrabold rounded-lg',
 	status: {
 		empty: 'bg-gray-4/30 text-black dark:text-white dark:bg-gray-4/20',
 		absent: 'bg-gray-4',
@@ -28,7 +28,7 @@ const LetterStyles = {
 } as const
 
 const ExampleLetterStyles = {
-	base: 'grid place-items-center h-20 w-20 text-4xl text-black dark:text-white font-extrabold rounded-lg',
+	base: 'grid place-items-center h-14 sm:h-20 aspect-square text-4xl text-black dark:text-white font-extrabold rounded-lg',
 	status: {
 		...LetterStyles.status,
 		empty:

@@ -27,27 +27,28 @@ export const Keyboard = () => {
 	useWindow('keydown', handleKeyDown)
 
 	return (
-		<div className="my-14 w-full rounded-2xl bg-gray-2/30 py-10 px-5 text-lg font-semibold dark:bg-gray-2/5">
-			<div className="flex flex-col gap-2.5">
-				<div className="flex gap-2.5 self-center">
+		<div className="my-14 flex w-full justify-center rounded-2xl bg-gray-2/30 py-8 px-2 text-lg font-semibold dark:bg-gray-2/5 sm:px-5 sm:py-10">
+			<div className="inline-flex flex-col gap-1 sm:w-full sm:gap-2.5">
+				<div className="flex gap-1 sm:gap-2.5 sm:self-center">
 					{KEYS[0].map((letter) => (
 						<Key key={letter} onClick={() => onKeyPressed(letter)}>
 							{letter}
 						</Key>
 					))}
 				</div>
-				<div className="mr-4 flex gap-2.5 self-end">
+				<div className="flex gap-1 sm:mr-4 sm:gap-2.5 sm:self-end">
 					{KEYS[1].map((letter) => (
 						<Key key={letter} onClick={() => onKeyPressed(letter)}>
 							{letter}
 						</Key>
 					))}
 				</div>
-				<div className="flex gap-2.5">
+				<div className="flex gap-1 sm:gap-2.5">
 					<Key
 						onClick={() => {
 							enter()
 						}}
+						className="text-sm"
 					>
 						ENTER
 					</Key>
@@ -63,7 +64,7 @@ export const Keyboard = () => {
 							removeLetter()
 						}}
 					>
-						<BackspaceIcon className="w-10" />
+						<BackspaceIcon className="w-6 sm:w-10" />
 					</Key>
 				</div>
 			</div>
@@ -71,7 +72,11 @@ export const Keyboard = () => {
 	)
 }
 
-export const Key = ({ children, ...rest }: React.ComponentProps<'button'>) => {
+export const Key = ({
+	children,
+	className,
+	...rest
+}: React.ComponentProps<'button'>) => {
 	const STATUS_STYLE: Record<LetterStatus, string> = {
 		empty: 'bg-gray-3 text-[#56575E] dark:bg-gray-6 dark:text-white',
 		absent: 'bg-gray-5 text-white',
@@ -104,8 +109,9 @@ export const Key = ({ children, ...rest }: React.ComponentProps<'button'>) => {
 	return (
 		<button
 			className={cn(
-				'h-[51px] min-w-[44px] rounded-md px-4',
-				STATUS_STYLE[letterStatus]
+				'h-9 min-w-[32px] rounded-md px-2 sm:h-[51px] sm:min-w-[44px] sm:px-4',
+				STATUS_STYLE[letterStatus],
+				className
 			)}
 			{...rest}
 		>

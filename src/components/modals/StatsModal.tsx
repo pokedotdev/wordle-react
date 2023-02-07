@@ -19,11 +19,13 @@ export const StatsModal = () => {
 		<Modal
 			state={state}
 			buttonText="Aceptar"
-			trigger={<ChartIcon className="fill-gray-5 dark:fill-white" />}
+			trigger={
+				<ChartIcon className="h-8 fill-gray-5 dark:fill-white sm:h-10" />
+			}
 		>
 			<div className="my-12 flex flex-col items-center px-10 text-xl">
 				<h2 className="text-center text-4xl font-bold">Estadísticas</h2>
-				<div className="my-12 flex justify-between self-stretch px-20">
+				<div className="my-12 flex justify-between self-stretch sm:px-20">
 					<div className="flex flex-col items-center">
 						<div className="text-4xl font-extrabold">{plays}</div>
 						<div>Jugadas</div>

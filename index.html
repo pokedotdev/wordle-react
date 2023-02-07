@@ -16,6 +16,14 @@
 			html.dark {
 				color-scheme: dark;
 			}
+			/* Avoid Chrome to see Safari hack */
+			@supports (-webkit-touch-callout: none) {
+				.min-h-screen,
+				.max-h-screen {
+					/* The hack for Safari */
+					height: -webkit-fill-available;
+				}
+			}
 		</style>
 	</head>
 	<body class="antialiased dark:bg-gray-7 dark:text-white">
